@@ -51,22 +51,6 @@ $hotels = [
     ],
 ];
 
-
-foreach ($hotels as $key => $hotel) {
-
-    if ($hotel["parking"] == true) {
-        $hotel["parking"] = "si";
-    } else {
-        $hotel["parking"] = "no";
-    }
-
-    echo "</br>";
-
-    foreach ($hotel as $keyin => $value) {
-        echo $value . " ";
-    }
-}
-
 ?>
 
 <div class="container mt-5">
@@ -80,28 +64,33 @@ foreach ($hotels as $key => $hotel) {
             <th scope="col">Distanza dal centro</th>
         </tr>
         </thead>
+
         <tbody>
-        <!-- <tr>
-            <th scope="row">nome hotel</th>
-            <td class="table-active">descrizione hotel</td>
-            <td>parcheggio?</td>
-            <td>quante stelle</td>
-            <td>distanza</td>
-        </tr> -->
+
         <?php
             foreach ($hotels as $key => $hotel) {
                 echo "<tr>";
-                    foreach ($hotel as $keyin => $value) {
-                        if ($keyin == "name") {
-                            echo "<th>$value</th>";
-                        } else {
-                            echo "<td>$value</td>";
-                        }                  
-                    }
+
+                if ($hotel["parking"] == true) {
+                    $hotel["parking"] = "Si";
+                } else {
+                    $hotel["parking"] = "No";
+                }
+
+                foreach ($hotel as $keyin => $value) {
+                    if ($keyin == "name") {
+                        echo "<th>$value</th>";
+                    } else {
+                        echo "<td>$value</td>";
+                    }                  
+                }
+
                 echo "</tr>";
             }
         ?>
+
         </tbody>
+        
     </table>
 </div>
 
