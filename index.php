@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hotels php</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     
@@ -67,6 +68,29 @@ foreach ($hotels as $key => $hotel) {
 }
 
 ?>
+
+<div class="container mt-5">
+    <table class="table table-striped table-hover">
+        <thead>
+        <tr>
+            <th scope="col">Nome</th>
+            <th scope="col">Descrizione</th>
+            <th scope="col">Parcheggio</th>
+            <th scope="col">Stelle</th>
+            <th scope="col">Distanza dal centro</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row">nome hotel</th>
+            <td class="table-active">descrizione hotel</td>
+            <td>parcheggio?</td>
+            <td>quante stelle</td>
+            <td>distanza</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
