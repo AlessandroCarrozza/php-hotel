@@ -49,9 +49,19 @@ $hotels = [
     ],
 ];
 
-foreach ($hotels as $firstKey => $hotel) {
-    foreach ($hotel as $secondKey => $value) {
-        echo $value . "</br>";
+
+foreach ($hotels as $key => $hotel) {
+
+    if ($hotel["parking"] == true) {
+        $hotel["parking"] = "si";
+    } elseif ($hotel["parking"] == false) {
+        $hotel["parking"] = "no";
+    }
+
+    echo "</br>";
+
+    foreach ($hotel as $keyin => $value) {
+        echo $value . " ";
     }
 }
 
