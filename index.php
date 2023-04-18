@@ -54,6 +54,23 @@ $hotels = [
 ?>
 
 <div class="container mt-5">
+
+
+    <form action="index.php" method="get">
+        <label for="parking">Parcheggio</label>
+        <select name="parking" id="parking">
+            <option value="default">Scegli</option>
+            <option value="si">Si</option>
+            <option value="no">No</option>
+        </select>
+
+        <label for="vote">Voto</label>
+        <input type="text" name="vote" id="vote">
+
+        <button type="button" class="btn btn-primary">Cerca</button>
+        <input class="btn btn-secondary" type="reset" value="Reset">
+    </form>
+
     <table class="table table-striped table-hover">
         <thead>
         <tr>
@@ -90,7 +107,7 @@ $hotels = [
         ?>
 
         </tbody>
-        
+
     </table>
 </div>
 
