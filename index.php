@@ -92,7 +92,11 @@ foreach ($hotels as $key => $hotel) {
             foreach ($hotels as $key => $hotel) {
                 echo "<tr>";
                     foreach ($hotel as $keyin => $value) {
-                        echo "<td>ciao</td>";
+                        if ($keyin == "name") {
+                            echo "<th>$value</th>";
+                        } else {
+                            echo "<td>$value</td>";
+                        }                  
                     }
                 echo "</tr>";
             }
