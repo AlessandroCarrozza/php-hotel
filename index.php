@@ -90,7 +90,11 @@ foreach ($hotels as $key => $hotel) {
         </tr> -->
         <?php
             foreach ($hotels as $key => $hotel) {
-                echo "<p>ciao</p>";
+                echo "<tr>";
+                    foreach ($hotel as $keyin => $value) {
+                        echo "<td>ciao</td>";
+                    }
+                echo "</tr>";
             }
         ?>
         </tbody>
