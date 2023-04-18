@@ -81,13 +81,18 @@ foreach ($hotels as $key => $hotel) {
         </tr>
         </thead>
         <tbody>
-        <tr>
+        <!-- <tr>
             <th scope="row">nome hotel</th>
             <td class="table-active">descrizione hotel</td>
             <td>parcheggio?</td>
             <td>quante stelle</td>
             <td>distanza</td>
-        </tr>
+        </tr> -->
+        <?php
+            foreach ($hotels as $key => $hotel) {
+                echo "<p>ciao</p>";
+            }
+        ?>
         </tbody>
     </table>
 </div>
