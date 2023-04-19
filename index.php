@@ -51,6 +51,34 @@ $hotels = [
     ],
 ];
 
+$parking = $_GET["parking"];
+$vote = $_GET["vote"];
+
+
+$filteredHotels = $hotels;
+
+if (isset($_GET["parking"]) && $_GET["parking"] == "si") {
+    $filteredHotels = [];
+    foreach ($hotels as $hotel) {
+        if ($hotel["parking"] == true) {
+            $filteredHotels[] = $hotel;
+        }
+    }
+} elseif (isset($_GET["parking"]) && $_GET["parking"] == "no") {
+    $filteredHotels = [];
+    foreach ($hotels as $hotel) {
+        if ($hotel["parking"] == false) {
+            $filteredHotels[] = $hotel;
+        }
+    }
+} elseif (isset($_GET["parking"]) && $_GET["parking"] == "default") {
+    $filteredHotels = [];
+    foreach ($hotels as $hotel) {
+        $filteredHotels[] = $hotel;
+    }
+} 
+
+
 ?>
 
 <div class="container mt-5">
@@ -59,7 +87,7 @@ $hotels = [
     <form action="index.php" method="get">
         <label for="parking">Parcheggio</label>
         <select name="parking" id="parking">
-            <option value="default">Scegli</option>
+            <option value="default">Tutti</option>
             <option value="si">Si</option>
             <option value="no">No</option>
         </select>
@@ -67,7 +95,7 @@ $hotels = [
         <label for="vote">Voto</label>
         <input type="text" name="vote" id="vote">
 
-        <button type="button" class="btn btn-primary">Cerca</button>
+        <button type="submit" class="btn btn-primary">Cerca</button>
         <input class="btn btn-secondary" type="reset" value="Reset">
     </form>
 
@@ -85,14 +113,14 @@ $hotels = [
         <tbody>
 
         <?php
-            foreach ($hotels as $key => $hotel) {
-                echo "<tr>";
-
+            foreach ($filteredHotels as $hotel) {
                 if ($hotel["parking"] == true) {
                     $hotel["parking"] = "Si";
                 } else {
                     $hotel["parking"] = "No";
                 }
+     
+                echo "<tr>";
 
                 foreach ($hotel as $keyin => $value) {
                     if ($keyin == "name") {
