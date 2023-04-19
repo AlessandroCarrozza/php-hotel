@@ -79,6 +79,17 @@ if (isset($_GET["parking"]) && $_GET["parking"] == "si") {
 } 
 
 
+if (isset($_GET["vote"]) && $_GET["vote"] != "") {
+    $voteArray = [];
+    foreach ($filteredHotels as $filteredHotel) {
+        if ($filteredHotel["vote"] >= $_GET["vote"]) {
+            $voteArray[] = $filteredHotel;
+        }
+    }
+    $filteredHotels = $voteArray;
+}
+
+
 ?>
 
 <div class="container mt-5">
@@ -92,8 +103,8 @@ if (isset($_GET["parking"]) && $_GET["parking"] == "si") {
             <option value="no">No</option>
         </select>
 
-        <!-- <label for="vote">Voto</label>
-        <input type="text" name="vote" id="vote"> -->
+        <label for="vote">Voto</label>
+        <input type="text" name="vote" id="vote">
 
         <button type="submit" class="btn btn-primary">Cerca</button>
         <input class="btn btn-secondary" type="reset" value="Reset">
@@ -139,7 +150,5 @@ if (isset($_GET["parking"]) && $_GET["parking"] == "si") {
     </table>
 </div>
 
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
