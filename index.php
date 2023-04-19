@@ -92,8 +92,8 @@ if (isset($_GET["parking"]) && $_GET["parking"] == "si") {
             <option value="no">No</option>
         </select>
 
-        <label for="vote">Voto</label>
-        <input type="text" name="vote" id="vote">
+        <!-- <label for="vote">Voto</label>
+        <input type="text" name="vote" id="vote"> -->
 
         <button type="submit" class="btn btn-primary">Cerca</button>
         <input class="btn btn-secondary" type="reset" value="Reset">
