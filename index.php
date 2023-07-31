@@ -51,8 +51,13 @@ $hotels = [
     ],
 ];
 
-$parking = $_GET["parking"];
-$vote = $_GET["vote"];
+if (isset($_GET["parking"])) {
+    $parking = $_GET["parking"];
+}
+
+if (isset($_GET["vote"])) {
+    $vote = $_GET["vote"];
+}
 
 
 $filteredHotels = $hotels;
@@ -72,10 +77,7 @@ if (isset($_GET["parking"]) && $_GET["parking"] == "si") {
         }
     }
 } elseif (isset($_GET["parking"]) && $_GET["parking"] == "default") {
-    $filteredHotels = [];
-    foreach ($hotels as $hotel) {
-        $filteredHotels[] = $hotel;
-    }
+    $filteredHotels = $hotels;
 } 
 
 
@@ -95,7 +97,7 @@ if (isset($_GET["vote"]) && $_GET["vote"] != "") {
 <div class="container mt-5">
 
 
-    <form action="index.php" method="get">
+    <form action="index.php" method="GET">
         <label for="parking">Parcheggio</label>
         <select name="parking" id="parking">
             <option value="default">Tutti</option>
@@ -125,11 +127,8 @@ if (isset($_GET["vote"]) && $_GET["vote"] != "") {
 
         <?php
             foreach ($filteredHotels as $hotel) {
-                if ($hotel["parking"] == true) {
-                    $hotel["parking"] = "Si";
-                } else {
-                    $hotel["parking"] = "No";
-                }
+
+                $hotel["parking"] = $hotel["parking"] == true? "Si" : "No";
      
                 echo "<tr>";
 
